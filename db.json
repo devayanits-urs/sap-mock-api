@@ -337,5 +337,192 @@
       "dunningLevel": 0
     }
   ],
+  "pricing": [
+    {
+      "id": "MCL-1001-OEM-A",
+      "materialNumber": "MCL-1001",
+      "customerGroup": "OEM-A",
+      "basePrice": 5200,
+      "discountPct": 8,
+      "netPrice": 4784,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },
+    {
+      "id": "MCL-1001-OEM-A",
+      "materialNumber": "MCL-1001",
+      "customerGroup": "OEM-A",
+      "basePrice": 5200,
+      "discountPct": 10,
+      "netPrice": 4680,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },
+    {
+      "id": "MCL-1001-OEM-A",
+      "materialNumber": "MCL-1001",
+      "customerGroup": "OEM-A",
+      "basePrice": 5200,
+      "discountPct": 13,
+      "netPrice": 4528,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },
+    {
+      "id": "MCL-1002-OEM-A",
+      "materialNumber": "MCL-1002",
+      "customerGroup": "OEM-A",
+      "basePrice": 5100,
+      "discountPct": 8,
+      "netPrice": 4692,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },
+    {
+      "id": "MCL-1004-OEM-A",
+      "materialNumber": "MCL-1004",
+      "customerGroup": "OEM-A",
+      "basePrice": 13800,
+      "discountPct": 5,
+      "netPrice": 13110,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1004-OEM-A",
+      "materialNumber": "MCL-1004",
+      "customerGroup": "OEM-A",
+      "basePrice": 13800,
+      "discountPct": 8,
+      "netPrice": 12696,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1005-OEM-B",
+      "materialNumber": "MCL-1005",
+      "customerGroup": "OEM-B",
+      "basePrice": 1050,
+      "discountPct": 5,
+      "netPrice": 997,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1005-OEM-B",
+      "materialNumber": "MCL-1005",
+      "customerGroup": "OEM-B",
+      "basePrice": 1050,
+      "discountPct": 8,
+      "netPrice": 966,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1005-OEM-B",
+      "materialNumber": "MCL-1005",
+      "customerGroup": "OEM-B",
+      "basePrice": 1050,
+      "discountPct": 12,
+      "netPrice": 924,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1007-OEM-B",
+      "materialNumber": "MCL-1007",
+      "customerGroup": "OEM-B",
+      "basePrice": 2400,
+      "discountPct": 5,
+      "netPrice": 2280,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1007-OEM-B",
+      "materialNumber": "MCL-1007",
+      "customerGroup": "OEM-B",
+      "basePrice": 2400,
+      "discountPct": 8,
+      "netPrice": 2208,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1008-OEM-B",
+      "materialNumber": "MCL-1008",
+      "customerGroup": "OEM-B",
+      "basePrice": 3350,
+      "discountPct": 5,
+      "netPrice": 3182,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1010-OEM-A",
+      "materialNumber": "MCL-1010",
+      "customerGroup": "OEM-A",
+      "basePrice": 4600,
+      "discountPct": 5,
+      "netPrice": 4370,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1010-OEM-A",
+      "materialNumber": "MCL-1010",
+      "customerGroup": "OEM-A",
+      "basePrice": 4600,
+      "discountPct": 8,
+      "netPrice": 4232,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1011-OEM-B",
+      "materialNumber": "MCL-1011",
+      "customerGroup": "OEM-B",
+      "basePrice": 1750,
+      "discountPct": 5,
+      "netPrice": 1662,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1013-OEM-A",
+      "materialNumber": "MCL-1013",
+      "customerGroup": "OEM-A",
+      "basePrice": 6700,
+      "discountPct": 5,
+      "netPrice": 6365,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1014-OEM-A",
+      "materialNumber": "MCL-1014",
+      "customerGroup": "OEM-A",
+      "basePrice": 5900,
+      "discountPct": 5,
+      "netPrice": 5605,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1016-OEM-B",
+      "materialNumber": "MCL-1016",
+      "customerGroup": "OEM-B",
+      "basePrice": 2000,
+      "discountPct": 5,
+      "netPrice": 1900,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1018-OEM-A",
+      "materialNumber": "MCL-1018",
+      "customerGroup": "OEM-A",
+      "basePrice": 45000,
+      "discountPct": 5,
+      "netPrice": 42750,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1010-OEM-A",
+      "materialNumber": "MCL-1020",
+      "customerGroup": "OEM-A",
+      "basePrice": 3200,
+      "discountPct": 5,
+      "netPrice": 3040,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
