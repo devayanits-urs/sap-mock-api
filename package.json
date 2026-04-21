@@ -2,7 +2,7 @@
   "name": "sap-mock-api",
   "version": "1.0.0",
   "scripts": {
-    "start": "json-server --host 0.0.0.0 --port 10000 db.json"
+    "start": "node server.js"
   },
   "dependencies": {
     "json-server": "^0.17.0"
