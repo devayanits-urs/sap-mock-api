@@ -9,7 +9,517 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
-// Create table automatically
+// ---------- STATIC SAP MOCK DATA ----------
+
+// INVENTORY
+const inventory = [
+  {
+      "id": "MCL-1001",
+      "material": "Precision Crankshaft - Type A",
+      "plant": "PL01",
+      "availableStock": 480,
+      "reservedUnits": 120,
+      "netAvailable": 360,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 14
+    },
+    {
+      "id": "MCL-1002",
+      "material": "Precision Crankshaft - Type B",
+      "plant": "PL01",
+      "availableStock": 210,
+      "reservedUnits": 80,
+      "netAvailable": 130,
+      "uom": "EA",
+      "stockStatus": "Low Stock",
+      "leadTimeDays": 14
+    },
+    {
+      "id": "MCL-1003",
+      "material": "Camshaft Assembly - Standard",
+      "plant": "PL01",
+      "availableStock": 95,
+      "reservedUnits": 95,
+      "netAvailable": 0,
+      "uom": "EA",
+      "stockStatus": "Out of Stock",
+      "leadTimeDays": 21
+    },
+    {
+      "id": "MCL-1004",
+      "material": "Camshaft Assembly - Heavy Duty",
+      "plant": "PL02",
+      "availableStock": 340,
+      "reservedUnits": 60,
+      "netAvailable": 280,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 21
+    },
+    {
+      "id": "MCL-1005",
+      "material": "Connecting Rod - Grade 1",
+      "plant": "PL01",
+      "availableStock": 1200,
+      "reservedUnits": 200,
+      "netAvailable": 1000,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 7
+    },
+    {
+      "id": "MCL-1006",
+      "material": "Connecting Rod - Grade 2",
+      "plant": "PL02",
+      "availableStock": 450,
+      "reservedUnits": 450,
+      "netAvailable": 0,
+      "uom": "EA",
+      "stockStatus": "Out of Stock",
+      "leadTimeDays": 7
+    },
+    {
+      "id": "MCL-1007",
+      "material": "Piston Assembly - 85mm",
+      "plant": "PL01",
+      "availableStock": 780,
+      "reservedUnits": 100,
+      "netAvailable": 680,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 10
+    },
+    {
+      "id": "MCL-1008",
+      "material": "Piston Assembly - 92mm",
+      "plant": "PL01",
+      "availableStock": 320,
+      "reservedUnits": 80,
+      "netAvailable": 240,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 10
+    },
+    {
+      "id": "MCL-1009",
+      "material": "Valve Train Kit - Type V1",
+      "plant": "PL02",
+      "availableStock": 60,
+      "reservedUnits": 40,
+      "netAvailable": 20,
+      "uom": "EA",
+      "stockStatus": "Low Stock",
+      "leadTimeDays": 28
+    },
+    {
+      "id": "MCL-1010",
+      "material": "Valve Train Kit - Type V2",
+      "plant": "PL02",
+      "availableStock": 190,
+      "reservedUnits": 30,
+      "netAvailable": 160,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 28
+    },
+    {
+      "id": "MCL-1011",
+      "material": "Cylinder Liner - 88mm",
+      "plant": "PL01",
+      "availableStock": 540,
+      "reservedUnits": 100,
+      "netAvailable": 440,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 12
+    },
+    {
+      "id": "MCL-1012",
+      "material": "Cylinder Liner - 96mm",
+      "plant": "PL01",
+      "availableStock": 115,
+      "reservedUnits": 115,
+      "netAvailable": 0,
+      "uom": "EA",
+      "stockStatus": "Out of Stock",
+      "leadTimeDays": 12
+    },
+    {
+      "id": "MCL-1013",
+      "material": "Timing Chain Assembly",
+      "plant": "PL01",
+      "availableStock": 280,
+      "reservedUnits": 50,
+      "netAvailable": 230,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 18
+    },
+    {
+      "id": "MCL-1014",
+      "material": "Oil Pump Assembly - Standard",
+      "plant": "PL02",
+      "availableStock": 410,
+      "reservedUnits": 70,
+      "netAvailable": 340,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 14
+    },
+    {
+      "id": "MCL-1015",
+      "material": "Oil Pump Assembly - High Flow",
+      "plant": "PL02",
+      "availableStock": 88,
+      "reservedUnits": 60,
+      "netAvailable": 28,
+      "uom": "EA",
+      "stockStatus": "Low Stock",
+      "leadTimeDays": 14
+    },
+    {
+      "id": "MCL-1016",
+      "material": "Fuel Injector Nozzle - Diesel",
+      "plant": "PL01",
+      "availableStock": 620,
+      "reservedUnits": 120,
+      "netAvailable": 500,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 9
+    },
+    {
+      "id": "MCL-1017",
+      "material": "Fuel Injector Nozzle - CNG",
+      "plant": "PL01",
+      "availableStock": 145,
+      "reservedUnits": 90,
+      "netAvailable": 55,
+      "uom": "EA",
+      "stockStatus": "Low Stock",
+      "leadTimeDays": 9
+    },
+    {
+      "id": "MCL-1018",
+      "material": "Turbocharger Unit - Entry",
+      "plant": "PL02",
+      "availableStock": 72,
+      "reservedUnits": 30,
+      "netAvailable": 42,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 35
+    },
+    {
+      "id": "MCL-1019",
+      "material": "Turbocharger Unit - Performance",
+      "plant": "PL02",
+      "availableStock": 34,
+      "reservedUnits": 34,
+      "netAvailable": 0,
+      "uom": "EA",
+      "stockStatus": "Out of Stock",
+      "leadTimeDays": 35
+    },
+    {
+      "id": "MCL-1020",
+      "material": "EGR Valve Assembly",
+      "plant": "PL01",
+      "availableStock": 290,
+      "reservedUnits": 50,
+      "netAvailable": 240,
+      "uom": "EA",
+      "stockStatus": "Available",
+      "leadTimeDays": 20
+    }
+];
+
+// PRICING
+const pricing = [
+  {
+      "id": "MCL-1001-OEM-A",
+      "materialNumber": "MCL-1001",
+      "customerGroup": "OEM-A",
+      "basePrice": 5200,
+      "discountPct": 8,
+      "netPrice": 4784,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },
+    {
+      "id": "MCL-1001-OEM-A",
+      "materialNumber": "MCL-1001",
+      "customerGroup": "OEM-A",
+      "basePrice": 5200,
+      "discountPct": 10,
+      "netPrice": 4680,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },
+    {
+      "id": "MCL-1001-OEM-A",
+      "materialNumber": "MCL-1001",
+      "customerGroup": "OEM-A",
+      "basePrice": 5200,
+      "discountPct": 13,
+      "netPrice": 4528,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },
+    {
+      "id": "MCL-1002-OEM-A",
+      "materialNumber": "MCL-1002",
+      "customerGroup": "OEM-A",
+      "basePrice": 5100,
+      "discountPct": 8,
+      "netPrice": 4692,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },
+    {
+      "id": "MCL-1004-OEM-A",
+      "materialNumber": "MCL-1004",
+      "customerGroup": "OEM-A",
+      "basePrice": 13800,
+      "discountPct": 5,
+      "netPrice": 13110,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1004-OEM-A",
+      "materialNumber": "MCL-1004",
+      "customerGroup": "OEM-A",
+      "basePrice": 13800,
+      "discountPct": 8,
+      "netPrice": 12696,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1005-OEM-B",
+      "materialNumber": "MCL-1005",
+      "customerGroup": "OEM-B",
+      "basePrice": 1050,
+      "discountPct": 5,
+      "netPrice": 997,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1005-OEM-B",
+      "materialNumber": "MCL-1005",
+      "customerGroup": "OEM-B",
+      "basePrice": 1050,
+      "discountPct": 8,
+      "netPrice": 966,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1005-OEM-B",
+      "materialNumber": "MCL-1005",
+      "customerGroup": "OEM-B",
+      "basePrice": 1050,
+      "discountPct": 12,
+      "netPrice": 924,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1007-OEM-B",
+      "materialNumber": "MCL-1007",
+      "customerGroup": "OEM-B",
+      "basePrice": 2400,
+      "discountPct": 5,
+      "netPrice": 2280,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1007-OEM-B",
+      "materialNumber": "MCL-1007",
+      "customerGroup": "OEM-B",
+      "basePrice": 2400,
+      "discountPct": 8,
+      "netPrice": 2208,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1008-OEM-B",
+      "materialNumber": "MCL-1008",
+      "customerGroup": "OEM-B",
+      "basePrice": 3350,
+      "discountPct": 5,
+      "netPrice": 3182,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1010-OEM-A",
+      "materialNumber": "MCL-1010",
+      "customerGroup": "OEM-A",
+      "basePrice": 4600,
+      "discountPct": 5,
+      "netPrice": 4370,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1010-OEM-A",
+      "materialNumber": "MCL-1010",
+      "customerGroup": "OEM-A",
+      "basePrice": 4600,
+      "discountPct": 8,
+      "netPrice": 4232,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1011-OEM-B",
+      "materialNumber": "MCL-1011",
+      "customerGroup": "OEM-B",
+      "basePrice": 1750,
+      "discountPct": 5,
+      "netPrice": 1662,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1013-OEM-A",
+      "materialNumber": "MCL-1013",
+      "customerGroup": "OEM-A",
+      "basePrice": 6700,
+      "discountPct": 5,
+      "netPrice": 6365,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1014-OEM-A",
+      "materialNumber": "MCL-1014",
+      "customerGroup": "OEM-A",
+      "basePrice": 5900,
+      "discountPct": 5,
+      "netPrice": 5605,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1016-OEM-B",
+      "materialNumber": "MCL-1016",
+      "customerGroup": "OEM-B",
+      "basePrice": 2000,
+      "discountPct": 5,
+      "netPrice": 1900,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1018-OEM-A",
+      "materialNumber": "MCL-1018",
+      "customerGroup": "OEM-A",
+      "basePrice": 45000,
+      "discountPct": 5,
+      "netPrice": 42750,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    },{
+      "id": "MCL-1010-OEM-A",
+      "materialNumber": "MCL-1020",
+      "customerGroup": "OEM-A",
+      "basePrice": 3200,
+      "discountPct": 5,
+      "netPrice": 3040,
+      "validFrom": "2024-10-01",
+      "validTo": "2025-03-31"
+    }
+];
+
+// AR
+const ar_invoices = [
+  {
+      "id": "CUS-10042",
+      "accountName": "Mahindra Auto Components",
+      "openInvoiceAmountINR": 720000,
+      "maxDaysOverdue": 16,
+      "creditUtilizationPct": 48,
+      "arRiskFlag": "Amber",
+      "dunningLevel": 1
+    },
+    {
+      "id": "CUS-10087",
+      "accountName": "Tata Motors Vendors",
+      "openInvoiceAmountINR": 647500,
+      "maxDaysOverdue": 23,
+      "creditUtilizationPct": 31,
+      "arRiskFlag": "Amber",
+      "dunningLevel": 1
+    },
+    {
+      "id": "CUS-10031",
+      "accountName": "Bosch India Ltd",
+      "openInvoiceAmountINR": 667500,
+      "maxDaysOverdue": 0,
+      "creditUtilizationPct": 22,
+      "arRiskFlag": "Green",
+      "dunningLevel": 1
+    },
+    {
+      "id": "CUS-10055",
+      "accountName": "Bharat Forge Partners",
+      "openInvoiceAmountINR": 1616000,
+      "maxDaysOverdue": 39,
+      "creditUtilizationPct": 88,
+      "arRiskFlag": "Red",
+      "dunningLevel": 2
+    },
+    {
+      "id": "CUS-10019",
+      "accountName": "Maruti Suzuki Ancillaries",
+      "openInvoiceAmountINR": 760000,
+      "maxDaysOverdue": 0,
+      "creditUtilizationPct": 16,
+      "arRiskFlag": "Green",
+      "dunningLevel": 0
+    },
+    {
+      "id": "CUS-10073",
+      "accountName": "Ashok Leyland Tier1",
+      "openInvoiceAmountINR": 1875000,
+      "maxDaysOverdue": 26,
+      "creditUtilizationPct": 67,
+      "arRiskFlag": "Red",
+      "dunningLevel": 3
+    },
+    {
+      "id": "CUS-10064",
+      "accountName": "Cummins India Ltd",
+      "openInvoiceAmountINR": 408000,
+      "maxDaysOverdue": 0,
+      "creditUtilizationPct": 41,
+      "arRiskFlag": "Green",
+      "dunningLevel": 0
+    },
+    {
+      "id": "CUS-10091",
+      "accountName": "Motherson Sumi Systems",
+      "openInvoiceAmountINR": 1360000,
+      "maxDaysOverdue": 11,
+      "creditUtilizationPct": 72,
+      "arRiskFlag": "Amber",
+      "dunningLevel": 1
+    },
+    {
+      "id": "CUS-10048",
+      "accountName": "Eicher Motors Vendors",
+      "openInvoiceAmountINR": 618000,
+      "maxDaysOverdue": 6,
+      "creditUtilizationPct": 54,
+      "arRiskFlag": "Amber",
+      "dunningLevel": 1
+    },
+    {
+      "id": "CUS-10026",
+      "accountName": "Schaeffler India",
+      "openInvoiceAmountINR": 2100000,
+      "maxDaysOverdue": 0,
+      "creditUtilizationPct": 18,
+      "arRiskFlag": "Green",
+      "dunningLevel": 0
+    }
+];
+
+// ---------- DB ----------
+
 async function initDB() {
   await pool.query(`
     CREATE TABLE IF NOT EXISTS orders (
@@ -21,12 +531,15 @@ async function initDB() {
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )
   `);
+
   console.log("Database Ready");
 }
 
 initDB();
 
-// POST /orders
+// ---------- ROUTES ----------
+
+// Orders POST
 app.post('/orders', async (req, res) => {
   const { opportunityId, accountId, amount, closeDate } = req.body;
 
@@ -43,12 +556,27 @@ app.post('/orders', async (req, res) => {
   });
 });
 
-// GET /orders
+// Orders GET
 app.get('/orders', async (req, res) => {
   const result = await pool.query(`SELECT * FROM orders ORDER BY id DESC`);
   res.json(result.rows);
 });
 
-app.listen(process.env.PORT || 3000, () =>
-  console.log("Server Running")
-);
+// Inventory
+app.get('/inventory', (req, res) => {
+  res.json(inventory);
+});
+
+// Pricing
+app.get('/pricing', (req, res) => {
+  res.json(pricing);
+});
+
+// AR
+app.get('/ar_invoices', (req, res) => {
+  res.json(ar_invoices);
+});
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Server Running");
+});
