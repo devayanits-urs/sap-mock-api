@@ -562,8 +562,19 @@ app.get('/orders', async (req, res) => {
   res.json(result.rows);
 });
 
-// Inventory
+// // Inventory
+// app.get('/inventory', (req, res) => {
+//   res.json(inventory);
+// });
+
 app.get('/inventory', (req, res) => {
+  const id = req.query.id;
+
+  if(id){
+    const filtered = inventory.filter(i => i.id === id);
+    return res.json(filtered);
+  }
+
   res.json(inventory);
 });
 
