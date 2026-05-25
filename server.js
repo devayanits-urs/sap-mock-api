@@ -563,17 +563,17 @@ app.get('/orders', async (req, res) => {
 });
 
 // Inventory
-app.get('/inventory', (req, res) => {
-  res.json(inventory);
-});
-
 // app.get('/inventory', (req, res) => {
-//   const id = req.query.id;
+//   res.json(inventory);
+// });
 
-//   if(id){
-//     const filtered = inventory.filter(i => i.id === id);
-//     return res.json(filtered);
-//   }
+app.get('/inventory', (req, res) => {
+  const id = req.query.id;
+
+  if(id){
+    const filtered = inventory.filter(i => i.id === id);
+    return res.json(filtered);
+  }
 
   res.json(inventory);
 });
